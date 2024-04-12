@@ -16,8 +16,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            cd /root/sites/tasks-manager/
+            cd /root/sites/hr-hub/
             git pull origin main
             git status
             docker-compose down
-            docker-compose up --build
+            docker-compose up --build -d
