@@ -5,10 +5,10 @@ from django.contrib.auth.models import AbstractUser
 class Vacancy(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField(max_length=1000)
-    type = models.IntegerField()
-    professional_roles = models.JSONField()
-    area = models.IntegerField()
-    billing_type = models.IntegerField()
+    employment_type = models.CharField(max_length=100)
+    salary = models.IntegerField()
+    address = models.CharField(max_length=100)
+    key_skills = models.JSONField()
 
     def __str__(self):
         return self.name
