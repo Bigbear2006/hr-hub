@@ -1,0 +1,66 @@
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* серенький фон с небольшой прозрачностью */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 20px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* тень для окна */
+	max-width: 600px;
+  width: 100%;
+}
+.block__remove {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+}
+.block__remove > button {
+	padding: 10px 25px;
+	background-color: #274f7d;
+	border-radius: 10px;
+	color: white;
+	font-size: 16px;
+}
+.questionnaire {
+	font-size: 28px;
+	font-weight: 600;
+	color: #274f7d;
+	margin-bottom: 15px;
+	text-align: center;
+}
+.test {
+	margin-top: 15px;
+	font-size: 20px;
+	font-weight: 500;
+	color: #274f7d;
+	display: flex;
+	gap: 15px;
+}
+video {
+	width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.test > span {
+	color: green;
+}
+.psychology {
+	margin-top: 10px;
+	font-size: 20px;
+	font-weight: 500;
+	color: #274f7d;
+	display: flex;
+	gap: 15px;
+}
+.psychology > span {
+	color: green;
+}

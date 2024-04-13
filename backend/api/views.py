@@ -1,9 +1,13 @@
 from django.contrib.auth import login, logout, authenticate
 from rest_framework.request import Request
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework.generics import GenericAPIView, ListAPIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.parsers import FileUploadParser
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg.openapi import Parameter, TYPE_FILE, IN_BODY
 
 from . import models, serializers, utils
 
@@ -51,6 +55,18 @@ class UserInfoView(GenericAPIView):
         return Response(self.serializer_class(request.user).data, 200)
 
 
+class UploadFileView(APIView):
+    parser_classes = (FileUploadParser,)
+
+    @swagger_auto_schema(manual_parameters=[
+        Parameter('file', IN_BODY, type=TYPE_FILE)
+    ])
+    def post(self, request: Request):
+        print(type(request.FILES))
+        for f in request.FILES:
+            print(f, type(f))
+
+
 class VacancyViewSet(ModelViewSet):
     queryset = models.Vacancy.objects.all()
     serializer_class = serializers.VacancySerializer
@@ -60,9 +76,15 @@ class EventViewSet(ModelViewSet):
     queryset = models.Event.objects.all()
     serializer_class = serializers.EventSerializer
 
+
 class MessageViewSet(ModelViewSet):
     queryset = models.Message.objects.all()
     serializer_class = serializers.MessageSerializer
+
+
+class AccountListView(ListAPIView):
+    queryset = models.Account.objects.all()
+    serializer_class = serializers.AccountSerializer
 
 
 class DepartamentListView(ListAPIView):

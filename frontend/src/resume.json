@@ -1,0 +1,13 @@
+{
+  "name": { "first_name": "Ткаченко", "middle_name": "Роман", "last_name": "Александрович" },
+  "age": 17,
+  "birth_date": "1 августа 2006",
+  "phone": "+7 (918) 5123076 — предпочитаемый способ связи",
+  "email": "romantkacenko82@gmail.com",
+  "location": "Ростов-на-Дону",
+  "citizenship": "Россия, есть разрешение на работу: Россия",
+  "desired_position": "Программист Python",
+  "education": "Среднее специальное",
+  "key_skills": "Знание языков Русский — Родной",
+  "skills": ["SQL", "MySQL", "Git", "ООП", "CI/CD", "REST", "API", "JSON", "API", "Python"]
+}

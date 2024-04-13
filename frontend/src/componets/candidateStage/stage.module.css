@@ -1,0 +1,51 @@
+.form {
+	width: 50%;
+}
+.questionnaire {
+	font-size: 32px;
+	font-weight: 600;
+}
+.form__input {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-top: 15px;
+}
+.form__input > input {
+	border: 1px solid #274f7d;
+	height: 40px;
+	border-radius: 5px;
+	width: 65%;
+	color: #0f2239;
+	font-size: 16px;
+	padding-left: 8px;
+}
+.form__input__video {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-top: 15px;
+}
+.form__input__video > input {
+	height: 40px;
+	width: 65%;
+	font-size: 16px;
+}
+.form__button {
+	display: flex;
+	justify-content: flex-end;
+	width: 65%;
+}
+.form__button > button {
+	margin-top: 15px;
+	padding: 12px 20px;
+	background-color: #029c02;
+	border-radius: 10px;
+	color: white;
+	font-size: 16px;
+	transition: 0.2s ease-in;
+}
+.form__button > button:hover {
+	transition: 0.2s ease-in;
+	background-color: rgb(2, 128, 2);
+}

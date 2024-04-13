@@ -1,0 +1,51 @@
+.item {
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid #274f7d;
+	padding: 20px 20px;
+	border-radius: 5px;
+	align-items: center;
+}
+.item__fio__vacancy {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	font-size: 16px;
+	font-weight: 500;
+}
+.item__block__vacancy {
+	display: flex;
+	gap: 5px;
+	align-items: center;
+}
+.item__vacancy {
+	color: green;
+	font-size: 16px;
+}
+.item__resourse {
+	font-size: 16px;
+	font-weight: 500;
+}
+.item__candidate__info > button {
+	background: 0;
+	color: blue;
+	border-bottom: 1px solid blue;
+	font-size: 16px;
+}
+.status {
+	font-size: 16px;
+	font-weight: 500;
+}
+.select option {
+  background-color: white;
+  color: #000;
+}
+.select {
+  padding: 10px 5px;
+  font-size: 16px;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+  background-color: #274f7d;
+  width: 160px;
+}

@@ -1,0 +1,41 @@
+
+.applications__view {
+	background-color: white;
+	border-radius: 10px;
+  margin-top: 20px;
+}
+.block__back {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+.application__title {
+	font-size: 24px;
+	font-weight: 500;
+	color: #274f7d;
+}
+.application__item {
+	display: flex;
+	justify-content: space-between;
+	border: 1.5px solid #274f7d;
+	padding: 15px 20px;
+	border-radius: 5px;
+}
+
+.application__item a {
+  color: blue;
+  text-decoration: underline;
+}
+.item__title {
+	font-size: 18px;
+	font-weight: 500;
+}
+.item__candidate {
+	font-size: 18px;
+	font-weight: 500;
+}
+.item__details {
+	font-size: 16px;
+	font-weight: 500;
+}

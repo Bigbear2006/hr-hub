@@ -1,0 +1,108 @@
+
+
+.form__group {
+  margin-bottom: 25px;
+	width: 100%;
+}
+
+.input[type="text"], .input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #274f7d;
+  border-radius: 4px;
+	margin-top: 10px;
+	min-height: 45px;
+	color: #204064;
+}
+.form__group > textarea {
+	width: 100%;
+	padding: 8px 0px 0px 8px;
+	min-height: 150px;
+  font-size: 16px;
+  border: 1px solid #274f7d;
+  border-radius: 4px;
+	margin-top: 10px;
+	display: block;
+	box-sizing: border-box;
+	font-family: 'Montserrat';
+}
+.textarea {
+	
+}
+.button[type="submit"] {
+  padding: 10px 30px;
+  font-size: 16px;
+  background-color: #274f7d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+	transition: 0.3s ease-in;
+}
+
+.button[type="submit"]:hover {
+  background-color: #204064;
+	transition: 0.3s ease-in;
+}
+.title {
+	font-size: 26px;
+	font-weight: 600;
+}
+.close__form {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+.flex {
+	display: flex;
+	align-items: center;
+}
+.form {
+	width: 55%;
+}
+label {
+	font-size: 16px;
+	color: #000;
+	font-weight: 500;
+}
+.input__radio {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 10px;
+}
+.radio__label {
+	font-size: 16px;
+	color: #000;
+	font-weight: 400;
+}
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"] + label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 30px; /* Увеличиваем расстояние от кружка до текста */
+}
+
+input[type="radio"] + label:before {
+  content: '';
+  display: inline-block;
+  width: 18px; /* Задаем ширину кружка */
+  height: 18px; /* Задаем высоту кружка */
+  border-radius: 50%; /* Создаем круглую форму */
+  border: 2px solid #274f7d; /* Задаем цвет границы кружка */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Стилизация кружка при выборе */
+input[type="radio"]:checked + label:before {
+  background-color: green; /* Изменяем цвет фона при выборе */
+}
+.block__radio {
+	margin-top: 15px;
+}
