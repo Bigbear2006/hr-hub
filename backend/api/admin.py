@@ -15,4 +15,9 @@ admin.site.register(models.Event)
 admin.site.register(models.TestTask)
 admin.site.register(models.Way)
 
+admin.site.register(models.PsychoTest)
+admin.site.register(models.PsychoTestQuestion)
+admin.site.register(models.PsychoTestAnswer)
+admin.site.register(models.PsychoTestUserAnswer)
+
 

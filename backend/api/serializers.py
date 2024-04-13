@@ -24,7 +24,11 @@ class MessageSerializer(ModelSerializer):
 class AccountSerializer(ModelSerializer):
     class Meta:
         model = models.Account
-        fields = ('username', 'password', 'role', 'departament', 'status')
+        fields = ('id', 'username', 'password', 'role', 'departament', 'status')
+        depth = 1
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }
 
 
 class DepartamentSerializer(ModelSerializer):
@@ -55,3 +59,27 @@ class ExperienceSerializer(ModelSerializer):
     class Meta:
         model = models.Experience
         fields = '__all__'
+
+
+class PsychoTestAnswerSerializer(ModelSerializer):
+    class Meta:
+        model = models.PsychoTestAnswer
+        fields = ('id', 'name')
+
+
+class PsychoTestQuestionSerializer(ModelSerializer):
+    answers = PsychoTestAnswerSerializer(many=True)
+
+    class Meta:
+        model = models.PsychoTestQuestion
+        fields = ('id', 'name', 'answers')
+        depth = 1
+
+
+class PsychoTestSerializer(ModelSerializer):
+    questions = PsychoTestQuestionSerializer(many=True)
+
+    class Meta:
+        model = models.PsychoTest
+        fields = ('name', 'questions')
+        depth = 1

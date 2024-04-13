@@ -108,3 +108,32 @@ class Way(models.Model):
     test_task = models.ForeignKey(TestTask, models.SET_NULL, 'ways', null=True)
     account = models.ForeignKey(Account, models.CASCADE, 'ways')
     vacancy = models.ForeignKey(Vacancy, models.CASCADE, 'ways')
+    resume_url = models.FilePathField()
+
+
+class PsychoTest(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class PsychoTestQuestion(models.Model):
+    name = models.CharField(max_length=100)
+    test = models.ForeignKey(PsychoTest, models.CASCADE, 'questions')
+
+    def __str__(self):
+        return self.name
+
+
+class PsychoTestAnswer(models.Model):
+    name = models.CharField(max_length=100)
+    question = models.ForeignKey(PsychoTestQuestion, models.CASCADE, 'answers')
+
+    def __str__(self):
+        return self.name
+
+
+class PsychoTestUserAnswer(models.Model):
+    answer = models.ForeignKey(PsychoTestAnswer, models.CASCADE, 'users_answers')
+    account = models.ForeignKey(Account, models.CASCADE, 'answers')
