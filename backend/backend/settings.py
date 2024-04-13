@@ -29,9 +29,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['api', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['api', 'localhost', '127.0.0.1', 'new-team.space']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://127.0.0.1']
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost', 'http://127.0.0.1', 'http://new-team.space', 'https://new-team.space'
+]
 
 # Application definition
 
