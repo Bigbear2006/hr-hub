@@ -112,14 +112,14 @@ class Way(models.Model):
 
 
 class PsychoTest(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
 
 
 class PsychoTestQuestion(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=255)
     test = models.ForeignKey(PsychoTest, models.CASCADE, 'questions')
 
     def __str__(self):
@@ -127,7 +127,7 @@ class PsychoTestQuestion(models.Model):
 
 
 class PsychoTestAnswer(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=255)
     question = models.ForeignKey(PsychoTestQuestion, models.CASCADE, 'answers')
 
     def __str__(self):
