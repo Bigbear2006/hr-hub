@@ -4,6 +4,7 @@ from rest_framework.routers import DefaultRouter
 from . import views
 
 router = DefaultRouter()
+router.register('ways', views.VacancyViewSet, 'ways')
 router.register('vacancies', views.VacancyViewSet, 'vacancies')
 router.register('events', views.EventViewSet, 'events')
 router.register('messages', views.MessageViewSet, 'messages')
@@ -16,7 +17,6 @@ urlpatterns = [
     path('user-info/', views.UserInfoView.as_view()),
     # other
     path('upload-file/', views.UploadFileView.as_view()),
-    path('create-way/', views.CreateWayView.as_view()),
     # list actions
     path('departaments/', views.DepartamentListView.as_view()),
     path('employment-types/', views.EmploymentTypeListView.as_view()),
