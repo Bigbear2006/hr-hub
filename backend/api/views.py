@@ -2,7 +2,7 @@ from django.contrib.auth import login, logout, authenticate
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.generics import GenericAPIView, ListAPIView
+from rest_framework.generics import GenericAPIView, ListAPIView, CreateAPIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.parsers import FileUploadParser
@@ -65,6 +65,12 @@ class UploadFileView(APIView):
         print(type(request.FILES))
         for f in request.FILES:
             print(f, type(f))
+        return Response(status=200)
+
+
+class CreateWayView(CreateAPIView):
+    queryset = models.Way.objects.all()
+    serializer_class = serializers.WaySerializer
 
 
 class VacancyViewSet(ModelViewSet):

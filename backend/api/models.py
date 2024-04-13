@@ -103,12 +103,11 @@ class TestTask(models.Model):
 
 
 class Way(models.Model):
-    status = models.CharField(max_length=50)
     video = models.FileField(upload_to='video')
     test_task = models.ForeignKey(TestTask, models.SET_NULL, 'ways', null=True)
     account = models.ForeignKey(Account, models.CASCADE, 'ways')
     vacancy = models.ForeignKey(Vacancy, models.CASCADE, 'ways')
-    resume_url = models.FilePathField()
+    resume_url = models.FileField(upload_to='resume')
 
 
 class PsychoTest(models.Model):

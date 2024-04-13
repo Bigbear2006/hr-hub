@@ -16,6 +16,7 @@ urlpatterns = [
     path('user-info/', views.UserInfoView.as_view()),
     # other
     path('upload-file/', views.UploadFileView.as_view()),
+    path('create-way/', views.CreateWayView.as_view()),
     # list actions
     path('departaments/', views.DepartamentListView.as_view()),
     path('employment-types/', views.EmploymentTypeListView.as_view()),

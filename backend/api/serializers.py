@@ -61,6 +61,12 @@ class ExperienceSerializer(ModelSerializer):
         fields = '__all__'
 
 
+class WaySerializer(ModelSerializer):
+    class Meta:
+        model = models.Way
+        fields = '__all__'
+
+
 class PsychoTestAnswerSerializer(ModelSerializer):
     class Meta:
         model = models.PsychoTestAnswer
