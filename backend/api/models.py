@@ -61,9 +61,9 @@ class Vacancy(models.Model):
 
 
 class Account(AbstractUser):
-    role = models.ForeignKey(Role, models.CASCADE, 'accounts')
+    role = models.ForeignKey(Role, models.CASCADE, 'accounts', null=True)
     departament = models.ForeignKey(Departament, models.SET_NULL, 'users', null=True)
-    status = models.ForeignKey(Status, models.CASCADE, 'accounts')
+    status = models.ForeignKey(Status, models.CASCADE, 'accounts', null=True)
 
 
 class Message(models.Model):
