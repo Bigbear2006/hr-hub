@@ -49,10 +49,11 @@ INSTALLED_APPS = [
     # third party apps
     'rest_framework',
     'corsheaders',
-    'drf_yasg'
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -150,3 +151,16 @@ MEDIA_ROOT = 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'api.Account'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+       'rest_framework.authentication.SessionAuthentication'
+    ]
+}
+
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:3000',
+    'http://localhost:3000',
+]
+
+CORS_ALLOW_CREDENTIALS = True

@@ -1,5 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractBaseUser, UserManager
+
+from . import utils
 
 
 class Departament(models.Model):
@@ -60,10 +62,16 @@ class Vacancy(models.Model):
         return self.name
 
 
-class Account(AbstractUser):
-    role = models.ForeignKey(Role, models.CASCADE, 'accounts', null=True)
+class Account(AbstractBaseUser):
+    USERNAME_FIELD = "login"
+    REQUIRED_FIELDS = ["role", "departament", "status"]
+
+    login = models.CharField(max_length=8, default=utils.generate_login, unique=True)
+    role = models.ForeignKey(Role, models.CASCADE, 'accounts')
     departament = models.ForeignKey(Departament, models.SET_NULL, 'users', null=True)
-    status = models.ForeignKey(Status, models.CASCADE, 'accounts', null=True)
+    status = models.ForeignKey(Status, models.CASCADE, 'accounts')
+
+    objects = UserManager()
 
 
 class Message(models.Model):
