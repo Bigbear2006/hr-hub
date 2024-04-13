@@ -24,7 +24,7 @@ class MessageSerializer(ModelSerializer):
 class AccountSerializer(ModelSerializer):
     class Meta:
         model = models.Account
-        fields = ('login', 'password', 'role', 'departament', 'status')
+        fields = ('username', 'password', 'role', 'departament', 'status')
 
 
 class DepartamentSerializer(ModelSerializer):

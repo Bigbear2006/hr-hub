@@ -12,7 +12,7 @@ class UserLoginView(GenericAPIView):
 
     def post(self, request: Request):
         data = request.data
-        user = authenticate(request, username=data['login'], password=data['password'])
+        user = authenticate(request, username=data['username'], password=data['password'])
         if user is None:
             return Response({'error': 'user not found'}, 400)
         login(request, user)
@@ -25,7 +25,7 @@ class UserCreateView(GenericAPIView):
     def post(self, request: Request):
         data = request.data
         user = models.Account.objects.create_user(
-            login=utils.generate_login(),
+            username=utils.generate_login(),
             password=utils.generate_password(),
             role=data['role'],
             departament=data['departament'],
