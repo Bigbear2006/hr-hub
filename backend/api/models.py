@@ -2,27 +2,59 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
-class Vacancy(models.Model):
-    name = models.CharField(max_length=150)
-    description = models.TextField(max_length=1000)
-    employment_type = models.CharField(max_length=100)
-    salary = models.IntegerField()
-    address = models.CharField(max_length=100)
-    key_skills = models.JSONField()
+class Departament(models.Model):
+    name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name
 
 
-class Resource(models.Model):
-    name = models.CharField(max_length=50)
+class EmploymentType(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Status(models.Model):
+    name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
         return self.name
 
 
 class Role(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Resource(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Experience(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Vacancy(models.Model):
+    name = models.CharField(max_length=150)
+    description = models.TextField(max_length=1000)
+    employment_type = models.ForeignKey(EmploymentType, models.CASCADE, 'vacancies')
+    salary = models.IntegerField()
+    address = models.CharField(max_length=100)
+    key_skills = models.JSONField()
+    accept_handicapped = models.BooleanField(null=True)
+    accept_kids = models.BooleanField(null=True)
+    departament = models.ForeignKey(Departament, models.CASCADE, 'vacancies')
+    experience = models.ForeignKey(Experience, models.CASCADE, 'vacancies')
 
     def __str__(self):
         return self.name
@@ -30,6 +62,8 @@ class Role(models.Model):
 
 class Account(AbstractUser):
     role = models.ForeignKey(Role, models.CASCADE, 'accounts')
+    departament = models.ForeignKey(Departament, models.SET_NULL, 'users', null=True)
+    status = models.ForeignKey(Status, models.CASCADE, 'accounts')
 
 
 class Message(models.Model):
