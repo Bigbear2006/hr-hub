@@ -12,13 +12,13 @@ from . import models, serializers
 class UserCreateView(GenericAPIView):
     serializer_class = serializers.AccountSerializer
 
-    @swagger_auto_schema(manual_parameters=[
-        Parameter('username', IN_BODY, type=TYPE_STRING),
-        Parameter('password', IN_BODY, type=TYPE_STRING),
-        Parameter('role_id', IN_BODY, type=TYPE_INTEGER),
-        Parameter('departament_id', IN_BODY, type=TYPE_INTEGER),
-        Parameter('status_id', IN_BODY, type=TYPE_INTEGER),
-    ])
+    # @swagger_auto_schema(manual_parameters=[
+    #     Parameter('username', IN_BODY, type=TYPE_STRING),
+    #     Parameter('password', IN_BODY, type=TYPE_STRING),
+    #     Parameter('role_id', IN_BODY, type=TYPE_INTEGER),
+    #     Parameter('departament_id', IN_BODY, type=TYPE_INTEGER),
+    #     Parameter('status_id', IN_BODY, type=TYPE_INTEGER),
+    # ])
     def post(self, request: Request):
         data = request.data
         user = models.Account.objects.create_user(
