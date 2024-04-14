@@ -62,9 +62,12 @@ class ExperienceSerializer(ModelSerializer):
 
 
 class WaySerializer(ModelSerializer):
+    account = AccountSerializer()
+
     class Meta:
         model = models.Way
         fields = '__all__'
+        depth = 1
 
 
 class PsychoTestAnswerSerializer(ModelSerializer):

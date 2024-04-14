@@ -7,9 +7,9 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.parsers import FileUploadParser
 from drf_yasg.utils import swagger_auto_schema
-from drf_yasg.openapi import Parameter, TYPE_FILE, IN_BODY
+from drf_yasg.openapi import Parameter, IN_BODY, TYPE_STRING, TYPE_INTEGER
 
-from . import models, serializers, utils
+from . import models, serializers
 
 
 class UserLoginView(GenericAPIView):
@@ -27,14 +27,21 @@ class UserLoginView(GenericAPIView):
 class UserCreateView(GenericAPIView):
     serializer_class = serializers.AccountSerializer
 
+    @swagger_auto_schema(manual_parameters=[
+        Parameter('username', IN_BODY, type=TYPE_STRING),
+        Parameter('password', IN_BODY, type=TYPE_STRING),
+        Parameter('role_id', IN_BODY, type=TYPE_INTEGER),
+        Parameter('departament_id', IN_BODY, type=TYPE_INTEGER),
+        Parameter('status_id', IN_BODY, type=TYPE_INTEGER),
+    ])
     def post(self, request: Request):
         data = request.data
         user = models.Account.objects.create_user(
             username=data['username'],
             password=data['password'],
-            role=data['role'],
-            departament=data['departament'],
-            status=data['status'],
+            role_id=data['role_id'],
+            departament_id=data['departament_id'],
+            status_id=data['status_id'],
         )
         return Response(self.serializer_class(user).data)
 
