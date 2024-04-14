@@ -1,22 +1,20 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
-
+from rest_framework_simplejwt.views import token_obtain_pair, token_refresh
 from . import views
 
 router = DefaultRouter()
-router.register('ways', views.VacancyViewSet, 'ways')
+router.register('ways', views.WayViewSet, 'ways')
 router.register('vacancies', views.VacancyViewSet, 'vacancies')
 router.register('events', views.EventViewSet, 'events')
 router.register('messages', views.MessageViewSet, 'messages')
 
 urlpatterns = [
-    # account actions
+    # auth
+    path('get-token/', token_obtain_pair),
+    path('get-refresh/', token_refresh),
     path('create-user/', views.UserCreateView.as_view()),
-    path('login/', views.UserLoginView.as_view()),
-    path('logout/', views.UserLogoutView.as_view()),
     path('user-info/', views.UserInfoView.as_view()),
-    # other
-    path('upload-file/', views.UploadFileView.as_view()),
     # list actions
     path('departaments/', views.DepartamentListView.as_view()),
     path('employment-types/', views.EmploymentTypeListView.as_view()),

@@ -30,8 +30,8 @@ class UserCreateView(GenericAPIView):
     def post(self, request: Request):
         data = request.data
         user = models.Account.objects.create_user(
-            username=utils.generate_login(),
-            password=utils.generate_password(),
+            username=data['username'],
+            password=data['password'],
             role=data['role'],
             departament=data['departament'],
             status=data['status'],
