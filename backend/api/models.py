@@ -65,7 +65,7 @@ class Vacancy(models.Model):
 class Account(AbstractUser):
     REQUIRED_FIELDS = ["role_id", "departament_id", "status_id"]
 
-    username = models.CharField(max_length=8, default=utils.generate_login, unique=True)
+    username = models.CharField(max_length=100, default=utils.generate_login, unique=True)
     role = models.ForeignKey(Role, models.CASCADE, 'accounts')
     departament = models.ForeignKey(Departament, models.SET_NULL, 'users', null=True)
     status = models.ForeignKey(Status, models.CASCADE, 'accounts')
