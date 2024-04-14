@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, PrimaryKeyRelatedField
 
 from . import models
 
@@ -62,12 +62,19 @@ class ExperienceSerializer(ModelSerializer):
 
 
 class WaySerializer(ModelSerializer):
-    account = AccountSerializer()
+    account = PrimaryKeyRelatedField(queryset=models.Account.objects.all())
+    vacancy = PrimaryKeyRelatedField(queryset=models.Vacancy.objects.all())
 
     class Meta:
         model = models.Way
         fields = '__all__'
         depth = 1
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['account'] = AccountSerializer(instance.account).data
+        data['vacancy'] = VacancySerializer(instance.vacancy).data
+        return data
 
 
 class PsychoTestAnswerSerializer(ModelSerializer):
