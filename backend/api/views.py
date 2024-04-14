@@ -64,14 +64,14 @@ class MessageViewSet(ModelViewSet):
     serializer_class = serializers.MessageSerializer
 
 
-class AccountListView(ListAPIView):
-    queryset = models.Account.objects.all()
-    serializer_class = serializers.AccountSerializer
-
-
 class EmployeeView(ListAPIView):
     queryset = models.Account.objects.filter(role__name='Сотрудник')
     serializer_class = serializers.AccountSerializer
+
+
+class SentToDirectorWayList(ListAPIView):
+    queryset = models.Way.objects.filter(sent_to_director=True)
+    serializer_class = serializers.WaySerializer
 
 
 class DepartamentListView(ListAPIView):

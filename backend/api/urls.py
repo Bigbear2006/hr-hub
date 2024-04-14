@@ -10,15 +10,16 @@ router.register('events', views.EventViewSet, 'events')
 router.register('messages', views.MessageViewSet, 'messages')
 
 urlpatterns = [
-    # auth
+    # API для авторизации
     path('get-token/', token_obtain_pair),
     path('get-refresh/', token_refresh),
     path('create-user/', views.UserCreateView.as_view()),
     path('user-info/', views.UserInfoView.as_view()),
-    # retrieve
+    # API для получения определенной записи
     path('test/<int:pk>/', views.GetTestAPIVIew.as_view()),
-    # list
+    # API для получения списка записей
     path('employees/', views.EmployeeView.as_view()),
+    path('sent-to-director-ways/', views.SentToDirectorWayList.as_view()),
     path('departaments/', views.DepartamentListView.as_view()),
     path('employment-types/', views.EmploymentTypeListView.as_view()),
     path('statuses/', views.StatusListView.as_view()),

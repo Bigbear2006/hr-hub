@@ -107,6 +107,7 @@ class Way(models.Model):
     account = models.ForeignKey(Account, models.CASCADE, 'ways')
     vacancy = models.ForeignKey(Vacancy, models.CASCADE, 'ways')
     resume_url = models.FileField(upload_to='resume', null=True, blank=True)
+    sent_to_director = models.BooleanField(default=False)
 
 
 class PsychoTest(models.Model):
