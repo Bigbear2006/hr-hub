@@ -1,6 +1,6 @@
 from rest_framework.request import Request
 from rest_framework.response import Response
-from rest_framework.generics import GenericAPIView, ListAPIView
+from rest_framework.generics import GenericAPIView, ListAPIView, RetrieveAPIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from drf_yasg.utils import swagger_auto_schema
@@ -37,6 +37,11 @@ class UserInfoView(GenericAPIView):
 
     def get(self, request: Request):
         return Response(self.serializer_class(request.user).data, 200)
+
+
+class GetTestAPIVIew(RetrieveAPIView):
+    queryset = models.PsychoTest.objects.all()
+    serializer_class = serializers.PsychoTestSerializer
 
 
 class WayViewSet(ModelViewSet):

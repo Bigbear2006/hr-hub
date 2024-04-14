@@ -15,7 +15,9 @@ urlpatterns = [
     path('get-refresh/', token_refresh),
     path('create-user/', views.UserCreateView.as_view()),
     path('user-info/', views.UserInfoView.as_view()),
-    # list actions
+    # retrieve
+    path('test/<int:pk>/', views.GetTestAPIVIew.as_view()),
+    # list
     path('employees/', views.EmployeeView.as_view()),
     path('departaments/', views.DepartamentListView.as_view()),
     path('employment-types/', views.EmploymentTypeListView.as_view()),
